@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-##
+##### 🖥
 # Pickle Laptop
 # Sets up a new laptop with a basic development environment
 #
@@ -8,52 +8,59 @@
 #
 # Updated: January 28th, 2019
 # Created: January 27th, 2019
-##
-
-## Supporting Methods
-spacer() {
-	echo "⚡️⚡️⚡️⚡️🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔⚡️⚡️⚡️⚡️"
-	echo "⚡️⚡️⚡️⚡️🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔⚡️⚡️⚡️⚡️"
-	echo "⚡️⚡️⚡️⚡️🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔⚡️⚡️⚡️⚡️"
-}
-
-## Install Methods
-
-git() {
-	spacer
-	echo "Installing Git"
-	brew install git
-}
-
-git_verify() {
-	echo ""
-	echo "Would you like to verify the git version? Y/N"
-}
-
-homebrew() {
-	spacer
-	echo "Installing Homebrew"
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-}
-
-xcode() {
-	spacer
-	echo "Install the latest version of Xcode 🔨 from the App Store"
-    echo "Have you started the download? Y/N"
-}
+##### 🖥
 
 main() {
+	spacer
+	spacer
+    echo "⚡️ STARTING UP THE PICKLE POTATO MACHINE ⚡️"
+	spacer
+	spacer
+	
+    echo ""
+	echo "⚡️ Configuring Computer Files ⚡️"
 
-    echo "!!!!!!!STARTING UP THE PICKLE POTATO MACHINE!!!!!!!"
-    xcode
-    homebrew
-    vapor
-    git
+	echo "⚡️ BASH PROFILE ⚡️"
+	cp ./bash_profile/.bash_profile ~/.bash_profile
 
+	echo "⚡️ ZSHRC ⚡️"
+	cp ./bash_profile/.zshrc ~/.zshrc
+	done "Configuring Computer Files"
+
+    echo ""
+	echo "⚡️ Beginning Install Scripts ⚡️"
     chmod 755 scripts/.
-    ./scripts/nvm.sh
-    ./scripts/node.sh
-    ./scripts/angular.sh
+
+	exec_from_scripts homebrew.sh
+	exec_from_scripts vapor.sh
+	exec_from_scripts git.sh
+	exec_from_scripts nvm.sh
+	exec_from_scripts node.sh
+	exec_from_scripts angular.sh
+	done "Installing Script Libraries"
+
+	done "PICKLE POTATO MACHINE"
+}
+
+
+## Supporting Methods
+done() {
+	COMPL_MESSAGE=$1	
+
+	echo "======= DONE: $1  ======="
+	spacer
+	spacer
+}
+
+exec_from_scripts() {
+	SCRIPT_NAME=$1
+
+	spacer
+	./scripts/$1
+}
+
+spacer() {
+	echo "⚡️⚡️⚡️⚡️⚡️⚡️⚡️🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔⚡️⚡️⚡️⚡️⚡️⚡️⚡️"
 }
 
 main "$@"
