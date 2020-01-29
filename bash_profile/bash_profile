@@ -1,0 +1,27 @@
+## Aliases
+# [A] bash profile
+alias bp="vim ~/.bash_profile"
+alias sbp="source ~/.bash_profile"
+
+# [A] folder paths
+## PRIVATE ##
+
+# [A] git
+alias g.="git add ."
+alias gp="git push"
+alias br="git branch"
+alias gs="git status"
+
+## Shortcut Methods
+# [SM] git
+gc() {
+        git commit -m $1
+}
+
+gce() {
+        git commit -m "⚡️ $1"
+}
+
+gpu() {
+        git push --set-upstream $1 $2
+}

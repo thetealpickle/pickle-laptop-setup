@@ -51,8 +51,7 @@ main() {
 	git
 	git_verify
 	
-	mkdir ./scripts
-	git clone https://github.com/thetealpickle/scripts.git ./scripts
+	git clone https://github.com/thetealpickle/scripts.git ./
 
 	chmod 755 scripts/.
 	./scripts/nvm.sh
