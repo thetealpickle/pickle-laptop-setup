@@ -17,6 +17,7 @@ main() {
 	spacer
 	spacer
 	
+	echo ""
 	echo "
 ## 
 # Configuring Computer files
@@ -35,6 +36,7 @@ main() {
 
         compl_process "Configuring Computer Files"
 
+	echo ""
 	echo "
 ##      
 # Beginning Install Scripts
@@ -58,7 +60,6 @@ main() {
 	exec_from_scripts angular.sh
 
         compl_process "Installing Script Libraries"
-
         compl_process "PICKLE POTATO MACHINE"
 }
 
@@ -68,12 +69,12 @@ compl_process() {
 	COMPL_MESSAGE=$1	
 
 	echo "🤖🤖🤖🤖🤖🤖🤖======= DONE: $COMPL_MESSAGE  =======🤖🤖🤖🤖🤖🤖🤖"
-	echo ""
 }
 
 exec_from_scripts() {
 	SCRIPT_NAME=$1
 
+	echo ""
 	spacer
 	./scripts/"$SCRIPT_NAME"
 }
