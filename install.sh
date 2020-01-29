@@ -17,20 +17,36 @@ main() {
 	spacer
 	spacer
 	
-	echo ""
-	echo "⚡️ Configuring Computer Files ⚡️"
-
+	echo "
+## 
+# Configuring Computer files
+# 
+# bash_profile: computer aliases, shortcuts, and paths 
+# zshrc: automatically loads bash_profile when new window is created
+##
+	"
 	echo "⚡️ BASH PROFILE ⚡️"
-	sudo touch "$HOME"/.bash_profile
-	sudo cp ./bash_profile/.bash_profile "$HOME"/.bash_profile
+	sudo touch "$HOME/.bash_profile"
+	sudo cp configurations/bash_profile "$HOME/.bash_profile"
 
 	echo "⚡️ ZSHRC ⚡️"
-	sudo touch $HOME/.zshrc
-	sudo cp ./bash_profile/.zshrc $HOME/.zshrc
+	sudo touch "$HOME/.zshrc"
+	sudo cp configurations/zshrc "$HOME/.zshrc"
 
         compl_process "Configuring Computer Files"
 
-    	echo ""
+	echo "
+##      
+# Beginning Install Scripts
+#
+# Homebrew
+# Vapor
+# Git
+# NVM
+# Node
+# Angular
+##
+        "
 	echo "⚡️ Beginning Install Scripts ⚡️"
 	chmod 755 scripts/*
 
@@ -51,9 +67,8 @@ main() {
 compl_process() {
 	COMPL_MESSAGE=$1	
 
-	echo "======= DONE: $COMPL_MESSAGE  ======="
-	spacer
-	spacer
+	echo "🤖🤖🤖🤖🤖🤖🤖======= DONE: $COMPL_MESSAGE  =======🤖🤖🤖🤖🤖🤖🤖"
+	echo ""
 }
 
 exec_from_scripts() {
