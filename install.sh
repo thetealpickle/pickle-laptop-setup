@@ -45,18 +45,17 @@ xcode() {
 main() {
 
 	echo "!!!!!!!STARTING UP THE PICKLE POTATO MACHINE!!!!!!!"
-	xcode
-	homebrew
-	vapor
-	git
-	git_verify
+#	xcode
+#	homebrew
+#	vapor
+#	git
 	
-	git clone https://github.com/thetealpickle/scripts.git ./
 
-	chmod 755 scripts/.
-	./scripts/nvm.sh
-	./scripts/node.sh
-	./scripts/angular.sh	
+#    mkdir scripts
+    
+	#curl --create-dirs -u https://github.com/thetealpickle/scripts.git
+#	curl -u https://github.com/thetealpickle/scripts/blob/master/node.sh -o- node.sh
+#	curl -u https://github.com/thetealpickle/scripts/angular.sh -o- scripts/angular.sh
 }
 
 main "$@"
