@@ -13,23 +13,26 @@
 main() {
 	spacer
 	spacer
-    echo "⚡️ STARTING UP THE PICKLE POTATO MACHINE ⚡️"
+	echo "⚡️ STARTING UP THE PICKLE POTATO MACHINE"
 	spacer
 	spacer
 	
-    echo ""
+	echo ""
 	echo "⚡️ Configuring Computer Files ⚡️"
 
 	echo "⚡️ BASH PROFILE ⚡️"
-	cp ./bash_profile/.bash_profile ~/.bash_profile
+	sudo touch "$HOME"/.bash_profile
+	sudo cp ./bash_profile/.bash_profile "$HOME"/.bash_profile
 
 	echo "⚡️ ZSHRC ⚡️"
-	cp ./bash_profile/.zshrc ~/.zshrc
-	done "Configuring Computer Files"
+	sudo touch $HOME/.zshrc
+	sudo cp ./bash_profile/.zshrc $HOME/.zshrc
 
-    echo ""
+        compl_process "Configuring Computer Files"
+
+    	echo ""
 	echo "⚡️ Beginning Install Scripts ⚡️"
-    chmod 755 scripts/.
+	chmod 755 scripts/*
 
 	exec_from_scripts homebrew.sh
 	exec_from_scripts vapor.sh
@@ -37,17 +40,18 @@ main() {
 	exec_from_scripts nvm.sh
 	exec_from_scripts node.sh
 	exec_from_scripts angular.sh
-	done "Installing Script Libraries"
 
-	done "PICKLE POTATO MACHINE"
+        compl_process "Installing Script Libraries"
+
+        compl_process "PICKLE POTATO MACHINE"
 }
 
 
 ## Supporting Methods
-done() {
+compl_process() {
 	COMPL_MESSAGE=$1	
 
-	echo "======= DONE: $1  ======="
+	echo "======= DONE: $COMPL_MESSAGE  ======="
 	spacer
 	spacer
 }
@@ -56,7 +60,7 @@ exec_from_scripts() {
 	SCRIPT_NAME=$1
 
 	spacer
-	./scripts/$1
+	./scripts/"$SCRIPT_NAME"
 }
 
 spacer() {
